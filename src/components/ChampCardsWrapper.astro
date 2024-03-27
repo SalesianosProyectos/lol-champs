@@ -4,14 +4,15 @@ import ChampCard from './ChampCard.astro';
 
 const ddragon = new DDragon();
 const champs = await ddragon.champion.all();
-console.log(champs);
 
 ---
-<ul class="flex">
-    <!-- {Object.values(champs.data).map(champ => (
+<ul class="flex overflow-scroll">
+    {Object.values(champs.data).map(champ => (
         <ChampCard name={champ.name}
         title={champ.title}
-        image={champ.image}/>
-    ))}     -->
-    <ChampCard name="Aatrox" title="The Darkin Blade" image="Aatrox.png" blurb="Once honored defenders of Shurima against the Void, Aatrox and his brethren would eventually become an even greater threat to Runeterra, and were defeated only by cunning mortal sorcery. But after centuries of imprisonment, Aatrox was the first to find..."/>
+        image={champ.image}
+        blurb={champ.blurb}/>
+        
+    ))}    
+    <!-- <ChampCard name="Aatrox" title="The Darkin Blade" image="Aatrox.png" blurb="Once honored defenders of Shurima against the Void, Aatrox and his brethren would eventually become an even greater threat to Runeterra, and were defeated only by cunning mortal sorcery. But after centuries of imprisonment, Aatrox was the first to find..."/> -->
 </ul>
