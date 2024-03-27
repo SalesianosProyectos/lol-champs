@@ -1,16 +1,11 @@
 import CardsWrapper from "./CardsWrapper";
-
+import { DDragon } from '@fightmegg/riot-api';
+const ddragon = new DDragon();
+const champsData = await ddragon.champion.all();
 export default function Container(){
-    const ddragon = new DDragon();
-    const fetchChamps = async () => {
-        const champsData = await ddragon.champion.all();
-        setChamps(champsData.data);
-    };
-    fetchChamps();
-    console.log(champsData);
     return(
         <div>
-            hola
+            <CardsWrapper champsData={champsData}/>
         </div>
     )
 }
