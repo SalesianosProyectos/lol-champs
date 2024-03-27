@@ -1,19 +1,12 @@
 ---
+import ChampCardsWrapper from '../components/ChampCardsWrapper.astro';
 import LolChamp from '../components/LolChamp.astro';
 import Layout from '../layouts/Layout.astro';
-import { DDragon } from '@fightmegg/riot-api';
-
-const ddragon = new DDragon();
-const champs = await ddragon.champion.all();
-console.log(champs);
 ---
 
 <Layout title="LoL-Champs.">
 	<main class="text-white">
 		<h1 class="text-5xl">hola?</h1>
-        {Object.values(champs.data).map(champ => (
-            <LolChamp name={champ.name}
-			title={champ.title}/>
-        ))}
+		<ChampCardsWrapper />
 	</main>
 </Layout>

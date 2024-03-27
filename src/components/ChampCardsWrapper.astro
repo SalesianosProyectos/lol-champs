@@ -1,0 +1,14 @@
+---
+import { DDragon } from '@fightmegg/riot-api';
+import ChampCard from './ChampCard.astro';
+
+const ddragon = new DDragon();
+const champs = await ddragon.champion.all();
+---
+<ul class="flex">
+    {Object.values(champs.data).map(champ => (
+        <ChampCard name={champ.name}
+        title={champ.title}
+        image={champ.image}/>
+    ))}    
+</ul>

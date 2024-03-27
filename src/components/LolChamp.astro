@@ -1,6 +1,7 @@
 ---
-const {name, title} = Astro.props;
+const {name, title, image} = Astro.props;
 ---
 
 <h2>Hola, soy {name}</h2>
 <p>{title}</p>
+<img src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${image.full.replace('.png', '')}_0.jpg`} alt={name} />
