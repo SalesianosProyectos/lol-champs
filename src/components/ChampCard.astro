@@ -1,9 +1,51 @@
 ---
-const {name, title, image} = Astro.props;
+const {name, title, image, blurb} = Astro.props;
 ---
-
-<li>
-    <h1>{name}</h1>
-    <h2>{title}</h2>
-    <img src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${image.full.replace('.png', '')}_0.jpg`} alt={name} />
+<!-- <img src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${image.full.replace('.png', '')}_0.jpg`} alt={name} /> -->
+<li class="h-96 w-96 rounded-md flip-card">
+    <div class="flip-card-inner">
+        <div class=" rounded-md overflow-hidden h-full bg-cover bg-center flex items-end flip-card-front" style={`background-image: url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${image.replace('.png', '')}_0.jpg');`}>
+            <div class="w-full bg-gradient-to-t from-black to-white-0">
+                <h2>{name}</h2>
+                <h3>{title}</h3>
+            </div>
+        </div>
+        <div class="rounded-md overflow-hidden flip-card-back bg-black">
+            <h2>{name}</h2>
+            <h3>{title}</h3>
+            <p>
+                {blurb}
+            </p>
+        </div>
+    </div>
 </li>
+
+<style>
+.flip-card {
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* text-align: center; */
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+</style>
