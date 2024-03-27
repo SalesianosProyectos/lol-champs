@@ -10,7 +10,7 @@ const champs = await ddragon.champion.all();
 <Layout title="LoL-Champs.">
 	<main class="text-white">
 		<h1 class="text-5xl">hola?</h1>
-		{champs.map(champ => (
+        {Object.values(champs.data).map(champ => (
             <LolChamp name={champ.name} />
         ))}
 	</main>
