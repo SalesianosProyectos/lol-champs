@@ -10,7 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/tailwind": "^5.1.0",
     "@fightmegg/riot-api": "^0.0.19",
-    "astro": "^4.5.10"
+    "astro": "^4.5.10",
+    "tailwindcss": "^3.4.1"
   }
 }
